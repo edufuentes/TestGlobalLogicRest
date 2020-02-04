@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "a753f869-c68d-4185-9eeb-852bf735c1a3",
+		"name": "GLOBALLOGIC_TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CrearUsuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Juan Rodriguez\",\r\n\t\"email\": \"aaA2a2aaa1a@agmail.com\",\r\n\t\"password\": \"aaA2a2aaa1a\",\r\n\t\"phone\": [{\r\n\t\t\"number\": \"1234567\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\"\r\n\t},{\r\n\t\t\"number\": \"987654321\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\"\r\n\t}]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearUsuario with JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkhvbGEgcXVlIHRhbCE6ICIsInVzZXJfbmFtZSI6ImVkdWFyZG8iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTgwODQ3NTQ2LCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiZjNiNTYxMjMtODcyMy00NjRjLWI3ZTEtMDhhOWNkMjRkNjZlIiwiY2xpZW50X2lkIjoiY2xpZW50ZUFwcCJ9.DKeN4PoJhEXw3mizUdGLmeggjeFaggNhdLtuSOguaRQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Juan Rodriguez\",\r\n\t\"email\": \"aaA2a2aaa1a@agmail.com\",\r\n\t\"password\": \"aaA2a2aaa1a\",\r\n\t\"phone\": [{\r\n\t\t\"number\": \"1234567\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\"\r\n\t},{\r\n\t\t\"number\": \"987654321\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\"\r\n\t}]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login OAUTH JWT",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "clienteApp",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "eduardo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"1\",\r\n\t\"name\": \"Juan Rodriguez\",\r\n\t\"email\": \"aaA2a2aaa1a1982@agmail.com\",\r\n\t\"password\": \"hunter2\",\r\n\t\"phone\": [{\r\n\t\t\"number\": \"7654321\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\",\r\n\t\t\"id\":1\r\n\t},{\r\n\t\t\"number\": \"123456789\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\",\r\n\t\t\"id\":2\r\n\t}]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUsuario with JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkhvbGEgcXVlIHRhbCE6ICIsInVzZXJfbmFtZSI6ImVkdWFyZG8iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTgwODQzODgyLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiZWY3Y2U5ODYtN2YxZS00MTQ0LWE3NTctYjA5MDA4MGYyM2Q4IiwiY2xpZW50X2lkIjoiY2xpZW50ZUFwcCJ9.lO35Z8_hSw_jT3w6wlxicY1260dGJKs74ZwnHvn69RI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\":\"1\",\r\n\t\"name\": \"Juan Rodriguez\",\r\n\t\"email\": \"aaA2a2aaa1a1982@agmail.com\",\r\n\t\"password\": \"hunter2\",\r\n\t\"phone\": [{\r\n\t\t\"number\": \"7654321\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\",\r\n\t\t\"id\":1\r\n\t},{\r\n\t\t\"number\": \"123456789\",\r\n\t\t\"cityCode\": \"1\",\r\n\t\t\"countryCode\": \"57\",\r\n\t\t\"id\":2\r\n\t}]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUsuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUsuario with JWT",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsuario SHOW",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/getUser/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"getUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsuario SHOW with JWT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Users/getUser/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Users",
+						"getUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

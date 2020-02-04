@@ -4,9 +4,14 @@ plugins {
 	id 'java'
 }
 
+task(runMain, dependsOn: 'classes', type: JavaExec) {
+	main = 'com.globallogic.test.SpringBootTestApplication'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
 group = 'com.globallogic.test'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '8'
+sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
