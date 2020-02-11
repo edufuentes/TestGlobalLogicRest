@@ -58,9 +58,17 @@ public class UserServiceImpl implements UserService {
           final Long id, final User userToUpdate) {
     // Fetch the User from db
     User userFromDb = userRepository.findById(id).get();
-    userFromDb.setName(userToUpdate.getName());
+   // userFromDb.setName(userToUpdate.getName());
    // userFromDb.setNumberOfMoons(planetToUpdate.getNumberOfMoons());
-    return userRepository.save(userFromDb);
+    return userRepository.save(userToUpdate);
+  }
+
+  public IUserRepository getUserRepository() {
+    return userRepository;
+  }
+
+  public void setUserRepository(IUserRepository userRepository) {
+    this.userRepository = userRepository;
   }
 
   /**

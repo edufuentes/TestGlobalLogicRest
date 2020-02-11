@@ -34,6 +34,11 @@ public class UserController {
   @Autowired
   private UserService userService;
 
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
+
+
   /**
    * get Api to return list of all users.
    * @return List of Users
@@ -181,9 +186,9 @@ public class UserController {
       user.setModified(Calendar.getInstance());
       user.setLast_login(Calendar.getInstance());
 
-      userUpdated = userService.saveUser(user);
+      userUpdated = userService.updateUserById(id,user);
 
-      LOG.info("Usuario Actualizado, user: " + userUpdated.toString());
+      //LOG.info("Usuario Actualizado, user: " + userUpdated.toString());
 
     } catch (DataAccessException e) {
       LOG.error("Error: " + e.getMessage(),e);
@@ -229,5 +234,7 @@ public class UserController {
 
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
+
+
 
 }
